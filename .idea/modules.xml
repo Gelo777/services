@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/config-service/config-service.iml" filepath="$PROJECT_DIR$/config-service/config-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services-eureka/eureka-server.iml" filepath="$PROJECT_DIR$/services-eureka/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kitchen/kitchen.iml" filepath="$PROJECT_DIR$/kitchen/kitchen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pizza-order/pizze-order.iml" filepath="$PROJECT_DIR$/pizza-order/pizze-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/services.iml" filepath="$PROJECT_DIR$/.idea/services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-registry/services-eureka.iml" filepath="$PROJECT_DIR$/service-registry/services-eureka.iml" />
+    </modules>
+  </component>
+</project>

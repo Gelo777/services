@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  eureka-server:
+    image: eureka-server
+    build:
+      context: services-eureka
+      dockerfile: Dockerfile
+    container_name: eureka-service
+    ports:
+      - "8761:8761"
+    networks:
+      - webnet
+
+  pizza-order-service:
+    build:
+      context: pizza-order
+      dockerfile: Dockerfile
+    container_name: pizza-order-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-server
+    environment:
+      EUREKASERVER_URI: "http://eureka-server:8761/eureka/"
+    networks:
+      - webnet
+
+  kitchen-service:
+    build:
+      context: kitchen
+      dockerfile: Dockerfile
+    container_name: kitchen-service
+    ports:
+      - "8081:8081"
+    networks:
+      - webnet
+    depends_on:
+      - eureka-server
+    environment:
+      EUREKASERVER_URI: "http://eureka-server:8761/eureka/"
+
+networks:
+  webnet:
