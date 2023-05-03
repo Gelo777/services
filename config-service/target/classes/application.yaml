@@ -1,0 +1,31 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      import: "optional:configserver:"
+      enabled: true
+      discovery:
+        enabled: true
+      server:
+        git:
+          uri: https://github.com/Gelo777/Config.git
+          default-label: main
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKASERVER_UI:http://localhost:8761/eureka/}
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:
+
+
+
+
+
+
