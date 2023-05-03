@@ -16,7 +16,7 @@ public class KitchenController {
 
     @PostMapping("/kitchen")
     public ResponseEntity<Void> preparePizza(@RequestBody String pizzaOrder) {
-        System.out.println("Готовим пиццу: "+ exampleProperty);
+        System.out.println("Готовим пиццу: " + exampleProperty);
         // здесь должна быть логика по приготовлению пиццы
         return ResponseEntity.ok().build();
     }
