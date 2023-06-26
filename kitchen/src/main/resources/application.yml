@@ -3,18 +3,27 @@ server:
 
 spring:
   kafka:
-    listener:
-      type: batch
-      ack-mode: manual_immediate
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      group-id: topic-1
+      auto-offset-reset: earliest
+      properties:
+        spring.kafka.listener.ack-mode: MANUAL_IMMEDIATE
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
     bootstrap-servers: ${KAFKA_URI:localhost:9092}
   config:
     import: optional:configserver:http://localhost:8088/
   application:
     name: kitchen-service
+
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKASERVER_URI:http://localhost:8761/eureka/}
+
 management:
   endpoints:
     web:

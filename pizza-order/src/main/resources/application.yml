@@ -1,12 +1,16 @@
 spring:
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
   application:
     name: pizza-order-service
-  kafka:
-    bootstrap-servers: kafka:29092
 
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
 server:
-  port: 8080
+  port: 8085

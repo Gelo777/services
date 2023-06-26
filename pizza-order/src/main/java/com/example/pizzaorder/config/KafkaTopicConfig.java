@@ -12,4 +12,9 @@ public class KafkaTopicConfig {
     public NewTopic topic1() {
         return TopicBuilder.name("topic-1").build();
     }
+
+    @Bean
+    public NewTopic dlqTopic() {
+        return TopicBuilder.name("dlq-topic").build();
+    }
 }

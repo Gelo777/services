@@ -18,8 +18,8 @@ public class PizzaOrderController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> cook(@RequestBody Integer number){
-        kafkaSender.sendCustomMessage(number);
+    public ResponseEntity<Void> cook(){
+        kafkaSender.init();
         return ResponseEntity.ok().build();
     }
 }
